@@ -24,9 +24,6 @@
 # 先算有幾個X
 # 扣掉相連數 等於解 !?
 
-
-require 'benchmark'
-
 class Board
   def count_battleships(board)
     count = 0
@@ -39,16 +36,4 @@ class Board
     end
     count
   end
-end
-n = 10000000000000
-Benchmark.bm do |x|
-  board = Board.new
-  arr = [
-    ['X', '.', 'X', 'X', '.'],
-    ['.', '.', '.', '.', 'X'],
-    ['X', '.', '.', '.', 'X'],
-    ['X', '.', 'X', '.', 'X'],
-    ['.', '.', 'X', '.', '.']
-  ]
-  x.report { board.count_battleships(arr) }
 end

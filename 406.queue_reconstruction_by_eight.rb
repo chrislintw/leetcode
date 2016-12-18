@@ -24,10 +24,8 @@ class Queue
   def reconstruct_queue(people)
     people.sort!{ |x,y| x[0] == y[0] ? x[1] <=> y[1] : y[0] <=> x[0] }
     ans = []
-    people.size.times do |_|
-      x = people.shift
-      ans.insert(x[1],x)
-    end
+    # people.each { |person| ans.insert(person[1],person) }
+    people.size.times { |i| ans.insert(people[i][1],people[i]) }
     ans
   end
 end
