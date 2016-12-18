@@ -32,16 +32,16 @@ class Board
     count = 0
     board.each_index do |i|
       board[i].each_index do |j|
-        if board[i][j] == 'X'
-          count += 1 if board[i][j+1] != 'X' && (board[i+1].nil? || board[i+1][j] != 'X')
-        end
+        # count += 1 if board[i][j] == 'X' && board[i][j+1] != 'X' && (board[i+1].nil? || board[i+1][j] != 'X')
+        # count += 1 unless board[i][j] != 'X' || board[i][j+1] == 'X' || !(board[i+1].nil? || board[i+1][j] != 'X')
+        count += 1 unless board[i][j] != 'X' || board[i][j+1] == 'X' || !(board[i+1].nil? || board[i+1][j] != 'X')
       end
     end
     count
   end
 end
 n = 10000000000000
-Benchmark.bmbm do |x|
+Benchmark.bm do |x|
   board = Board.new
   arr = [
     ['X', '.', 'X', 'X', '.'],
